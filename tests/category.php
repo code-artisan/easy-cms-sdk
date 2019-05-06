@@ -4,7 +4,7 @@ namespace EasyCMS\Tests;
 
 class category extends Base
 {
-    public const CATEGORY_ID = '';
+    public const CATEGORY_ID = '090ef1b7-d22e-42e7-9f3e-a4ac353f7628';
 
     /**
      * 添加文章.
