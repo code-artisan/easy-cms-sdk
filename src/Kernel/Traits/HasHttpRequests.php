@@ -79,7 +79,7 @@ trait HasHttpRequests
     public function request($url, $method = 'GET', $options = [], $returnRow = true)
     {
         $options = array_merge(self::$defaults, $options, [
-            'headers'     => array_merge(isset($options['headers']) ? $options['headers'] : [], $this->getAuthorizationHeader()),
+            'headers' => array_merge(isset($options['headers']) ? $options['headers'] : [], $this->getAuthorizationHeader()),
             'http_errors' => false,
         ]);
 
