@@ -6,7 +6,6 @@ use EasyCMS\Kernel\BaseClient;
 
 class Client extends BaseClient
 {
-
     /**
      * Get categories by site id.
      *
@@ -19,12 +18,12 @@ class Client extends BaseClient
 
     /**
      * Show category.
-     * 
+     *
      * @return mixed
      */
     public function show(string $id)
     {
-        return $this->httpGet('category/' . $id);
+        return $this->httpGet('category/'.$id);
     }
 
     /**
@@ -44,7 +43,7 @@ class Client extends BaseClient
      */
     public function update(string $id, array $params)
     {
-        return $this->httpPut('category/' . $id, $params);
+        return $this->httpPut('category/'.$id, $params);
     }
 
     /**
@@ -54,6 +53,6 @@ class Client extends BaseClient
      */
     public function delete(string $id)
     {
-        return $this->httpDelete('category/' . $id);
+        return $this->httpDelete('category/'.$id);
     }
 }

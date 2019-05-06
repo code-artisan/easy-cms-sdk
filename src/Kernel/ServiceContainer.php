@@ -2,9 +2,9 @@
 
 namespace EasyCMS\Kernel;
 
-use Pimple\Container;
-use EasyCMS\Kernel\Providers\HttpClientServiceProvider;
 use EasyCMS\Kernel\Providers\ConfigServiceProvider;
+use EasyCMS\Kernel\Providers\HttpClientServiceProvider;
+use Pimple\Container;
 
 class ServiceContainer extends Container
 {
@@ -64,7 +64,7 @@ class ServiceContainer extends Container
         $base = [
             // http://docs.guzzlephp.org/en/stable/request-options.html
             'http' => [
-                'timeout' => 30.0,
+                'timeout'  => 30.0,
                 'base_uri' => 'http://api.dev.easy-cms.art/',
             ],
             'debug' => false,

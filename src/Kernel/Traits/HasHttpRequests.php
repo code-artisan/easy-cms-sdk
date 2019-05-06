@@ -5,7 +5,6 @@ namespace EasyCMS\Kernel\Traits;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
-use Psr\Http\Message\ResponseInterface;
 
 trait HasHttpRequests
 {
