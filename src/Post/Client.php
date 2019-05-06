@@ -22,7 +22,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function show(int $id)
+    public function show(string $id)
     {
         return $this->httpGet('post/' . $id);
     }
@@ -39,18 +39,18 @@ class Client extends BaseClient
 
     /**
      * Publish post by id.
-     * @param int $id
+     * @param string $id
      */
-    public function publish($id)
+    public function publish(string $id)
     {
         return $this->httpPost('post/publish/' . $id);
     }
 
     /**
      * Unpublish post by id.
-     * @param int $id
+     * @param string $id
      */
-    public function unpublish($id)
+    public function unpublish(string $id)
     {
         return $this->httpPost('post/unpublish/' . $id);
     }
@@ -60,7 +60,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function update(int $id, array $params)
+    public function update(string $id, array $params)
     {
         return $this->httpPut('post/' . $id, $params);
     }
@@ -70,7 +70,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function delete(int $id)
+    public function delete(string $id)
     {
         return $this->httpDelete('post/' . $id);
     }

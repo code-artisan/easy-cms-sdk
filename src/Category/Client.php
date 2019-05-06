@@ -12,7 +12,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function list(int $site_id)
+    public function list(string $site_id)
     {
         return $this->httpGet('category', compact('site_id'));
     }
@@ -22,7 +22,7 @@ class Client extends BaseClient
      * 
      * @return mixed
      */
-    public function show(int $id)
+    public function show(string $id)
     {
         return $this->httpGet('category/' . $id);
     }
@@ -42,7 +42,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function update(int $id, array $params)
+    public function update(string $id, array $params)
     {
         return $this->httpPut('category/' . $id, $params);
     }
@@ -52,7 +52,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function delete(int $id)
+    public function delete(string $id)
     {
         return $this->httpDelete('category/' . $id);
     }

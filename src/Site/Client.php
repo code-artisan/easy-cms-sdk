@@ -12,7 +12,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function show(int $id)
+    public function show(string $id)
     {
         return $this->httpGet('site/' . $id);
     }
@@ -22,7 +22,7 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function update(int $id, array $params = [])
+    public function update(string $id, array $params = [])
     {
         return $this->httpPut('site/' . $id, $params);
     }
