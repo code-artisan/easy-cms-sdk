@@ -2,9 +2,9 @@
 
 namespace EasyCMS\Tests;
 
-class site extends Base
+class Site extends Base
 {
-    public const SITE_ID = 1;
+    public const SITE_ID = 'a8aaaf27-5493-4750-8a6b-47a5aa2808d1';
 
     /**
      * @depends testUpdateSite

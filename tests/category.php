@@ -2,9 +2,9 @@
 
 namespace EasyCMS\Tests;
 
-class category extends Base
+class Category extends Base
 {
-    public const CATEGORY_ID = 1;
+    public const CATEGORY_ID = '';
 
     /**
      * 添加文章.
@@ -12,7 +12,7 @@ class category extends Base
     public function testCreateCategory()
     {
         $result = $this->app->category->create([
-            'site_id' => TestSite::SITE_ID,
+            'site_id' => Site::SITE_ID,
             'name'    => '测试类目',
             'pid'     => 0,
         ]);
