@@ -2,12 +2,10 @@
 
 namespace EasyCMS\Auth;
 
-use Pimple\Container;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use EasyCMS\Kernel\Traits\InteractsWithCache;
-use EasyCMS\Kernel\Traits\HasHttpRequests;
 use EasyCMS\Kernel\Exceptions\HttpException;
+use EasyCMS\Kernel\Traits\HasHttpRequests;
+use EasyCMS\Kernel\Traits\InteractsWithCache;
+use Pimple\Container;
 
 class AccessToken
 {
@@ -60,7 +58,7 @@ class AccessToken
      */
     public function __construct(Container $app)
     {
-        $this->app                = $app;
+        $this->app = $app;
 
         $this->endpointToGetToken = $this->getEndpointUrl();
     }
@@ -74,7 +72,6 @@ class AccessToken
 
     /**
      * @return array
-     *
      */
     public function getRefreshedToken(): array
     {
@@ -85,7 +82,6 @@ class AccessToken
      * @param bool $refresh
      *
      * @return array
-     *
      */
     public function getToken(bool $refresh = false): array
     {
@@ -113,7 +109,7 @@ class AccessToken
     {
         $this->getCache()->set($this->getCacheKey(), [
             $this->tokenKey => $token,
-            'expires_in' => $lifetime,
+            'expires_in'    => $lifetime,
         ], $lifetime - $this->safeSeconds);
 
         if (!$this->getCache()->has($this->getCacheKey())) {
@@ -140,18 +136,18 @@ class AccessToken
     /**
      * @param array $credentials
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\HttpException
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
      * @throws \EasyCMS\Kernel\Exceptions\InvalidArgumentException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function requestToken(array $credentials)
     {
         $result = $this->sendRequest($credentials);
 
         if (empty($result[$this->tokenKey])) {
-            throw new HttpException('Request access_token fail: '. json_encode($result, JSON_UNESCAPED_UNICODE), $response);
+            throw new HttpException('Request access_token fail: '.json_encode($result, JSON_UNESCAPED_UNICODE), $response);
         }
 
         return $result;
@@ -178,19 +174,19 @@ class AccessToken
      */
     protected function getCacheKey()
     {
-        return $this->cachePrefix . md5(json_encode($this->getCredentials()));
+        return $this->cachePrefix.md5(json_encode($this->getCredentials()));
     }
 
     /**
      * The request query will be used to add to the request.
-     *
-     * @return array
      *
      * @throws \EasyCMS\Kernel\Exceptions\HttpException
      * @throws \Psr\SimpleCache\InvalidArgumentException
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
      * @throws \EasyCMS\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyCMS\Kernel\Exceptions\RuntimeException
+     *
+     * @return array
      */
     protected function getQuery(): array
     {
@@ -198,9 +194,9 @@ class AccessToken
     }
 
     /**
-     * @return string
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidArgumentException
+     *
+     * @return string
      */
     public function getEndpoint(): string
     {
@@ -237,7 +233,5 @@ class AccessToken
         if (property_exists($this, $property)) {
             return $this->$property;
         }
-
-        return null;
     }
 }

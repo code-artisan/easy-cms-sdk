@@ -2,7 +2,7 @@
 
 namespace EasyCMS\Tests;
 
-class TestCategory extends Base
+class category extends Base
 {
     public const CATEGORY_ID = 1;
 
@@ -37,7 +37,7 @@ class TestCategory extends Base
 
     /**
      * Delete post.
-     * 
+     *
      * @depends testCreatePost
      */
     public function testDeleteCategory($id)

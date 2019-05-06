@@ -5,7 +5,7 @@ namespace EasyCMS\Tests;
 use EasyCMS\Factory;
 use PHPUnit\Framework\TestCase;
 
-class Base extends TestCase
+class base extends TestCase
 {
     /**
      * Instance of easy cms.

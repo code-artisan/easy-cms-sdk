@@ -6,7 +6,6 @@ use EasyCMS\Kernel\BaseClient;
 
 class Client extends BaseClient
 {
-
     /**
      * Get current site.
      *
@@ -14,7 +13,7 @@ class Client extends BaseClient
      */
     public function show(string $id)
     {
-        return $this->httpGet('site/' . $id);
+        return $this->httpGet('site/'.$id);
     }
 
     /**
@@ -24,6 +23,6 @@ class Client extends BaseClient
      */
     public function update(string $id, array $params = [])
     {
-        return $this->httpPut('site/' . $id, $params);
+        return $this->httpPut('site/'.$id, $params);
     }
 }

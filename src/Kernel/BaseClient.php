@@ -2,18 +2,10 @@
 
 namespace EasyCMS\Kernel;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\MessageFormatter;
-use GuzzleHttp\Middleware;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-
 use EasyCMS\Kernel\Traits\HasHttpRequests;
 
 class BaseClient
 {
-
     use HasHttpRequests { request as performRequest; }
 
     /**
@@ -29,7 +21,7 @@ class BaseClient
     /**
      * BaseClient constructor.
      *
-     * @param \EasyCMS\Kernel\ServiceContainer                    $app
+     * @param \EasyCMS\Kernel\ServiceContainer $app
      */
     public function __construct(ServiceContainer $app)
     {
@@ -44,9 +36,9 @@ class BaseClient
      * @param string $url
      * @param array  $query
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function httpGet(string $url, array $query = [])
     {
@@ -59,9 +51,9 @@ class BaseClient
      * @param string $url
      * @param array  $data
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function httpPost(string $url, array $data = [])
     {
@@ -74,24 +66,24 @@ class BaseClient
      * @param string $url
      * @param array  $data
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function httpPut(string $url, array $data = [])
     {
         return $this->request($url, 'PUT', ['form_params' => $data]);
     }
-    
+
     /**
      * DELETE request.
      *
      * @param string $url
      * @param array  $data
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function httpDelete(string $url, array $data = [])
     {
@@ -105,9 +97,9 @@ class BaseClient
      * @param string|array $data
      * @param array        $query
      *
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws \EasyCMS\Kernel\Exceptions\InvalidConfigException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function httpPostJson(string $url, array $data = [], array $query = [])
     {
@@ -117,7 +109,7 @@ class BaseClient
     public function getAuthorizationHeader(): array
     {
         return [
-            'Authorization' => 'Bearer ' . $this->app->auth->token[$this->app->auth->getTokenKey()],
+            'Authorization' => 'Bearer '.$this->app->auth->token[$this->app->auth->getTokenKey()],
         ];
     }
 }

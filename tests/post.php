@@ -2,7 +2,7 @@
 
 namespace EasyCMS\Tests;
 
-class TestPost extends Base
+class post extends Base
 {
     /**
      * 添加文章.
@@ -35,7 +35,7 @@ class TestPost extends Base
         ]);
 
         $this->assertEquals($result['data']['title'], '测试修改站点');
-        $this->assertEquals($result['data']['body'],  '我是修改之后的文章内容');
+        $this->assertEquals($result['data']['body'], '我是修改之后的文章内容');
     }
 
     /**
@@ -70,7 +70,7 @@ class TestPost extends Base
 
     /**
      * Delete post.
-     * 
+     *
      * @depends testCreatePost
      */
     public function testDeletePost($id)

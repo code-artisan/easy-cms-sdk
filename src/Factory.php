@@ -2,9 +2,10 @@
 
 namespace EasyCMS;
 
-class Factory {
+class Factory
+{
     /**
-     * @param array  $config
+     * @param array $config
      *
      * @return \EasyCMS\Kernel\ServiceContainer
      */

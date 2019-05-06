@@ -6,7 +6,6 @@ use EasyCMS\Kernel\BaseClient;
 
 class Client extends BaseClient
 {
-
     /**
      * Get posts by site and category.
      *
@@ -24,7 +23,7 @@ class Client extends BaseClient
      */
     public function show(string $id)
     {
-        return $this->httpGet('post/' . $id);
+        return $this->httpGet('post/'.$id);
     }
 
     /**
@@ -39,20 +38,22 @@ class Client extends BaseClient
 
     /**
      * Publish post by id.
+     *
      * @param string $id
      */
     public function publish(string $id)
     {
-        return $this->httpPost('post/publish/' . $id);
+        return $this->httpPost('post/publish/'.$id);
     }
 
     /**
      * Unpublish post by id.
+     *
      * @param string $id
      */
     public function unpublish(string $id)
     {
-        return $this->httpPost('post/unpublish/' . $id);
+        return $this->httpPost('post/unpublish/'.$id);
     }
 
     /**
@@ -62,7 +63,7 @@ class Client extends BaseClient
      */
     public function update(string $id, array $params)
     {
-        return $this->httpPut('post/' . $id, $params);
+        return $this->httpPut('post/'.$id, $params);
     }
 
     /**
@@ -72,6 +73,6 @@ class Client extends BaseClient
      */
     public function delete(string $id)
     {
-        return $this->httpDelete('post/' . $id);
+        return $this->httpDelete('post/'.$id);
     }
 }
