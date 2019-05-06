@@ -2,7 +2,7 @@
 
 namespace EasyCMS\Tests;
 
-class Post extends Base
+class post extends Base
 {
     /**
      * 添加文章.
@@ -10,10 +10,10 @@ class Post extends Base
     public function testCreatePost()
     {
         $result = $this->app->post->create([
-            'site_id'     => Site::SITE_ID,
+            'site_id' => Site::SITE_ID,
             'category_id' => Category::CATEGORY_ID,
-            'title'       => '测试文章',
-            'body'        => '这是一篇测试文章',
+            'title' => '测试文章',
+            'body' => '这是一篇测试文章',
         ]);
 
         $this->assertEquals($result['data']['title'], '测试文章');
@@ -30,7 +30,7 @@ class Post extends Base
     public function testUpdatePost($id)
     {
         $result = $this->app->post->update($id, [
-            'body'  => '我是修改之后的文章内容',
+            'body' => '我是修改之后的文章内容',
             'title' => '测试修改站点',
         ]);
 

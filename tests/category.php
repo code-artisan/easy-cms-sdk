@@ -2,7 +2,7 @@
 
 namespace EasyCMS\Tests;
 
-class Category extends Base
+class category extends Base
 {
     public const CATEGORY_ID = '';
 
@@ -13,8 +13,8 @@ class Category extends Base
     {
         $result = $this->app->category->create([
             'site_id' => Site::SITE_ID,
-            'name'    => '测试类目',
-            'pid'     => 0,
+            'name' => '测试类目',
+            'pid' => 0,
         ]);
 
         $this->assertEquals($result['data']['pid'], 0);
@@ -29,7 +29,7 @@ class Category extends Base
     public function testUpdateCategory($id)
     {
         $result = $this->app->category->update($id, [
-            'name'  => '修改类目',
+            'name' => '修改类目',
         ]);
 
         $this->assertEquals($result['data']['name'], '修改类目');

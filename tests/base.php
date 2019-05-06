@@ -5,7 +5,7 @@ namespace EasyCMS\Tests;
 use EasyCMS\Factory;
 use PHPUnit\Framework\TestCase;
 
-class Base extends TestCase
+class base extends TestCase
 {
     /**
      * Instance of easy cms.
@@ -19,7 +19,7 @@ class Base extends TestCase
         $this->app = Factory::make([
             'access_key' => '5i2acGth88wLWXAaLvusiyEqqHcDyaobt6nEVWnm',
             'secret_key' => '69jbBhCju94moN4J8DLHyijO5LUFyhzIaJi0lfAb',
-            'env'        => 'development',
+            'env' => 'development',
         ]);
     }
 

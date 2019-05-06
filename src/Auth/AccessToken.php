@@ -67,7 +67,7 @@ class AccessToken
     {
         $config = $this->app->getConfig();
 
-        return $config['env'] === 'development' ? 'http://api.dev.easy-cms.art/oauth/client' : 'http://api.easy-cms.art/oauth/client';
+        return 'development' === $config['env'] ? 'http://api.dev.easy-cms.art/oauth/client' : 'http://api.easy-cms.art/oauth/client';
     }
 
     /**
@@ -109,7 +109,7 @@ class AccessToken
     {
         $this->getCache()->set($this->getCacheKey(), [
             $this->tokenKey => $token,
-            'expires_in'    => $lifetime,
+            'expires_in' => $lifetime,
         ], $lifetime - $this->safeSeconds);
 
         if (!$this->getCache()->has($this->getCacheKey())) {
@@ -219,14 +219,14 @@ class AccessToken
         $config = $this->app->getConfig();
 
         return [
-            'access_key'    => $config['access_key'],
-            'secret_key'    => $config['secret_key'],
+            'access_key' => $config['access_key'],
+            'secret_key' => $config['secret_key'],
         ];
     }
 
     public function __get($property)
     {
-        if ($property === 'token') {
+        if ('token' === $property) {
             return $this->getToken();
         }
 

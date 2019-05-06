@@ -64,7 +64,7 @@ class ServiceContainer extends Container
         $base = [
             // http://docs.guzzlephp.org/en/stable/request-options.html
             'http' => [
-                'timeout'  => 30.0,
+                'timeout' => 30.0,
                 'base_uri' => 'http://api.dev.easy-cms.art/',
             ],
             'debug' => false,
