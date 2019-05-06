@@ -2,6 +2,7 @@
     "name": "easy-cms/easy-cms-sdk",
     "type": "library",
     "license": "MIT",
+    "description": "SDK for Easy CMS",
     "authors": [
         {
             "name": "artisan",
