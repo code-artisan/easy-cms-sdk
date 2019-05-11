@@ -23,9 +23,6 @@ class base extends TestCase
         ]);
     }
 
-    /**
-     * @depends testCreatePost
-     */
     public function testGetAccessToken()
     {
         $this->assertEquals(1, 1);

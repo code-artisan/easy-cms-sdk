@@ -67,7 +67,7 @@ class AccessToken
     {
         $config = $this->app->getConfig();
 
-        return 'development' === $config['env'] ? 'http://api.dev.easy-cms.art/oauth/client' : 'http://api.easy-cms.art/oauth/client';
+        return 'production' === $config['env'] ? 'http://api.easy-cms.art/oauth/client' : 'http://api.dev.easy-cms.art/oauth/client';
     }
 
     /**
@@ -147,7 +147,7 @@ class AccessToken
         $result = $this->sendRequest($credentials);
 
         if (empty($result[$this->tokenKey])) {
-            throw new HttpException('Request access_token fail: '.json_encode($result, JSON_UNESCAPED_UNICODE), $response);
+            throw new HttpException('Request access_token fail: '.json_encode($response, JSON_UNESCAPED_UNICODE));
         }
 
         return $result;
