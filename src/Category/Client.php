@@ -11,9 +11,14 @@ class Client extends BaseClient
      *
      * @return mixed
      */
-    public function list(string $site_id, string $pid = '0')
+    public function list(string $site_id, $pid = '0')
     {
         return $this->httpGet('category', compact('site_id', 'pid'));
+    }
+
+    public function tree(string $site_id, $pid = '0')
+    {
+        return $this->httpGet('category/tree', compact('site_id', 'pid'));
     }
 
     /**
