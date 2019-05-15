@@ -2,9 +2,11 @@
 
 namespace EasyCMS\Kernel\Traits;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 
 trait HasHttpRequests
 {
@@ -80,7 +82,7 @@ trait HasHttpRequests
     {
         $options = array_merge(self::$defaults, $options, [
             'headers' => array_merge(isset($options['headers']) ? $options['headers'] : [], $this->getAuthorizationHeader()),
-            'http_errors' => false,
+            'http_errors' => true,
         ]);
 
         $options = $this->fixJsonIssue($options);
@@ -89,10 +91,16 @@ trait HasHttpRequests
             $options['base_uri'] = $this->baseUri;
         }
 
-        $response = $this->getHttpClient()->request(strtoupper($method), $url, $options);
-        $response->getBody()->rewind();
+        try {
+            $response = $this->getHttpClient()->request(strtoupper($method), $url, $options);
+            $response->getBody()->rewind();
 
-        return $returnRow ? json_decode($response->getBody()->getContents(), true) : $response;
+            return $returnRow ? json_decode($response->getBody()->getContents(), true) : $response;
+        } catch(Exception $exception) {
+            $response = $exception->getResponse();
+
+            return new Response($response->getStatusCode(), $response->getHeaders(), $response->getBody()->getContents());
+        }
     }
 
     /**
