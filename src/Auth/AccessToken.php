@@ -24,7 +24,7 @@ class AccessToken
     /**
      * @var string
      */
-    protected $endpointToGetToken;
+    protected $endpointToGetToken = '/oauth/client';
 
     /**
      * @var string
@@ -59,15 +59,6 @@ class AccessToken
     public function __construct(Container $app)
     {
         $this->app = $app;
-
-        $this->endpointToGetToken = $this->getEndpointUrl();
-    }
-
-    protected function getEndpointUrl()
-    {
-        $config = $this->app->getConfig();
-
-        return 'production' === $config['env'] ? 'http://api.easy-cms.art/oauth/client' : 'http://api.dev.easy-cms.art/oauth/client';
     }
 
     /**
