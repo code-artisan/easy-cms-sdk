@@ -69,6 +69,11 @@ trait HasHttpRequests
         return [];
     }
 
+    public function getBaseUri()
+    {
+        return 'production' === $this->app->config['env'] ? 'http://api.easy-cms.art' : 'http://api.dev.easy-cms.art';
+    }
+
     /**
      * Make a request.
      *
@@ -87,9 +92,7 @@ trait HasHttpRequests
 
         $options = $this->fixJsonIssue($options);
 
-        if (property_exists($this, 'baseUri') && !is_null($this->baseUri)) {
-            $options['base_uri'] = $this->baseUri;
-        }
+        $options['base_uri'] = $this->getBaseUri();
 
         try {
             $response = $this->getHttpClient()->request(strtoupper($method), $url, $options);

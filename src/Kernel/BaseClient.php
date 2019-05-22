@@ -14,11 +14,6 @@ class BaseClient
     protected $app;
 
     /**
-     * @var
-     */
-    protected $baseUri;
-
-    /**
      * BaseClient constructor.
      *
      * @param \EasyCMS\Kernel\ServiceContainer $app
@@ -26,8 +21,6 @@ class BaseClient
     public function __construct(ServiceContainer $app)
     {
         $this->app = $app;
-
-        $this->baseUri = $this->app->config['http']['base_uri'];
     }
 
     /**
